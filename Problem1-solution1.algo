@@ -1,0 +1,32 @@
+ALGORITHM Problem1_solution1
+VAR
+  set1 : ARRAY_OF INTEGER[50];
+  set2 : ARRAY_OF INTEGER[50];
+  i,j,sum:INTEGER;
+  exist:BOOLEAN;
+ 
+BEGIN
+
+FUNCTION add(set_one,set_two) : INTEGER
+BEGIN
+sum:=0;
+    FOR i FROM 0 TO set_one.length-1   STEP 1  DO
+    exist:=FALSE;
+    FOR j FROM 0 TO  set_two.length-1 STEP 1  DO
+        IF (set_one[i]=set_two[j]) THEN
+            exist:=TRUE;
+            break;
+        END_IF
+    END_FOR
+    IF (not(exist)) THEN
+        sum:=sum+set_one[i];
+    END_IF
+END_FOR
+    RETURN sum ;
+END
+sum:=0;
+//add from set1
+add(set1,set2)
+//add from set2
+add(set2,set1)
+END
